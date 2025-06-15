@@ -13,12 +13,23 @@ export default function Page() {
   };
 
   return (
-    <div className="bg-white w-full min-h-screen flex flex-col gap-9 justify-center items-center py-12 px-4">
+    <div
+      className="
+        bg-white w-full min-h-screen flex flex-col gap-9
+        justify-start md:justify-center items-start md:items-center
+        pt-28 md:pt-8 px-4
+      "
+    >
       <TextArea
         value={prompt}
         onChange={(e) => setPrompt(e.target.value)}
       />
-      <ButtonsLanguageSelect onSelect={handleLanguageSelect} />
+
+      {/* escondido em mobile, visível a partir de md */}
+      <div className="hidden md:flex">
+        <ButtonsLanguageSelect onSelect={handleLanguageSelect} />
+      </div>
+
       <Footer />
     </div>
   );
